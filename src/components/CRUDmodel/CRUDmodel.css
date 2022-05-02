@@ -1,0 +1,11 @@
+.modelCrud{
+    background-color: rgb(232, 243, 243);
+    display: inline-block;
+    margin: 10px;
+    border: 2px solid #eee;
+    box-shadow: 0 2px 5px #ccc;
+    width: 400px;
+    height: 200px;
+    padding: 20px;
+}
+
