@@ -7,7 +7,7 @@ const DisplayProducts = props => {
   return (
     <div className="">
       {props.productData.map((item, index) => (
-        <div>Product: {item.productName} --- id: {item.id}</div>
+        <div onClick={() => props.handlerEditProduct(item) }>Product: {item.productName} --- id: {item.id}</div>
       ))}
     </div>
   );
