@@ -1,0 +1,11 @@
+table, th, td {
+    border: 1px solid;
+    width: 800px;
+    text-align: center;
+    
+  }
+  th,td{
+      width: 100px;
+      background-color: rgb(221, 231, 228);
+      font-style: italic;
+  }

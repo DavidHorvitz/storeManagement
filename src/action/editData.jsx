@@ -1,8 +1,8 @@
 import axios from 'axios';
 export const EDIT_PRODUCT = 'EDIT_PRODUCT'
-
+const serverUrl = process.env.REACT_APP_SERVER_URL;
 export const editProduct = obj => async dispatch => {
-  axios.post('http://192.168.17.135:3010/api/edit-product',{
+  axios.post(`${serverUrl}/api/edit-product`,{
     data: obj
   })
     .then(response => {
