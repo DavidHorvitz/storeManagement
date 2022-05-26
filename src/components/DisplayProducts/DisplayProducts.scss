@@ -1,0 +1,64 @@
+.DisplayProducts_continer {
+    
+            table,
+            th,
+            td {
+                border: 1px solid;
+                width: 800px;
+                text-align: center;
+    
+            }
+    
+            th,
+            td {
+                width: 100px;
+                background-color: rgb(221, 231, 228);
+                font-style: italic;
+            }
+    .item_continer {
+        display: flex;
+        margin-top: 5px;
+        .button_continer {
+            display: flex;
+            margin-left: 10px;
+            .edit_button {
+                background-color: rgb(44, 183, 66);
+                color: white;
+                padding: 10px;
+                border-radius: 5px;
+                text-align: center;
+                font-size: 14px;
+                font-weight: bold;
+                text-decoration: none;
+                border: 1px solid rgb(44, 183, 66);
+                width: 100px;
+                margin-right: 10px;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: rgb(255, 255, 255);
+                    color: rgb(44, 183, 66);
+                }
+            }
+
+            .delete_button {
+                background-color: red;
+                color: white;
+                padding: 10px;
+                border-radius: 5px;
+                text-align: center;
+                font-size: 14px;
+                font-weight: bold;
+                text-decoration: none;
+                border: 1px solid red;
+                width: 100px;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: rgb(255, 255, 255);
+                    color: red;
+                }
+            }
+        }
+    }
+}

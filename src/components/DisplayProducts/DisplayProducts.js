@@ -1,11 +1,27 @@
 import React from 'react';
-import './DisplayProducts.css';
+import './DisplayProducts.scss';
 import { connect } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { deleteProduct } from '../../action/deleteData';
 
 const DisplayProducts = props => {
+
   console.log(props.productData);
+  const navigate = useNavigate();
+  const handlerEditProduct = data => {
+    navigate('/edit-product', {
+      state: {
+        data: data,
+      }
+    });
+  };
+
+  const deleteProduct = productId => {
+    props.deleteProduct(productId);
+  };
+
   return (
-    <div className="">
+    <div className="DisplayProducts_continer">
       <table>
         <tr>
           <th>Id</th>
@@ -17,7 +33,7 @@ const DisplayProducts = props => {
         </tr>
       </table>
       {props.productData.map((item, index) => (
-        <div onClick={() => props.handlerEditProduct(item)}>
+        <div className='item_continer'  >
           <table>
             <tr>
               <td>{item.id}</td>
@@ -29,6 +45,10 @@ const DisplayProducts = props => {
             </tr>
 
           </table>
+          <div className='button_continer'>
+            <div className='edit_button' onClick={() => handlerEditProduct(item)}>edit</div>
+            <div className='delete_button' onClick={() => deleteProduct(item.id)}>delete</div>
+          </div>
         </div>
       ))}
     </div>
@@ -40,4 +60,4 @@ const mapStateToProps = state => {
     productData: state.productData
   }
 }
-export default connect(mapStateToProps, {})(DisplayProducts);
+export default connect(mapStateToProps, { deleteProduct })(DisplayProducts);

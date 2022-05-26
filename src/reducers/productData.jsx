@@ -21,9 +21,14 @@ export default (state = defaultState, action) => {
                 }
             });
         case DELETE_PRODUCT:
-            const newState1 = [...state];
-            newState1.push(action.payload);
-            return newState;
+            const newStateB =  state.filter(item => {
+                if (item.id === action.payload) {
+                    return false
+                } else {
+                    return true
+                }
+            });
+            return newStateB;
         default:
             return state;
 

@@ -1,0 +1,54 @@
+body {
+    background-color: hsl(206, 43%, 90%);
+}
+
+/* @import url('https://www.w3schools.com/w3css/4/w3.css');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
+
+.w3-sidebar a {
+    font-family: "Roboto", sans-serif
+}
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.w3-wide {
+    font-family: "Montserrat", sans-serif;
+} */
+.header {
+    width: 100%;
+    background-color: bisque;
+    height: 200PX;
+}
+
+.button_Continer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+    .create_button {
+        background-color: rgb(44, 183, 66);
+        color: white;
+        padding: 10px;
+        border-radius: 5px;
+        text-align: center;
+        font-size: 14px;
+        font-weight: bold;
+        text-decoration: none;
+        border: 1px solid rgb(44, 183, 66);
+        width: 200px;
+        margin-right: 10px;
+        cursor: pointer;
+        align-items: center;
+
+        &:hover {
+            background-color: rgb(255, 255, 255);
+            color: rgb(44, 183, 66);
+        }
+    }
+}

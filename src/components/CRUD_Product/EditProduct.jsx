@@ -2,22 +2,33 @@ import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { editProduct } from "../../action/editData";
 import classes from './Model_Product.css';
+import ButtonClose from "../Templete/ButtonClose/ButtonClose";
+import { useLocation, useNavigate,  } from "react-router-dom";
 
 const EditProduct = props => {
 
-    const [productName, setProductName] = useState(props.data.productName);
-    const [department, setDepartment] = useState(props.data.department);
-    const [price, setPrice] = useState(props.data.price);
-    const [productId, setProductId] = useState(props.data.productId);
-    const [id, setId] = useState(props.data.id);
+    const navigate = useNavigate();
+    const location = useLocation();
+    const data = location.state.data;
+
+    const [productName, setProductName] = useState(data.productName);
+    const [department, setDepartment] = useState(data.department);
+    const [price, setPrice] = useState(data.price);
+    const [productId, setProductId] = useState(data.productId);
+    const [id, setId] = useState(data.id);
+    const [close, setClose] = useState(true);
 
     useEffect(() => {
-        setProductName(props.data.productName);
-        setDepartment(props.data.department);
-        setPrice(props.data.price);
-        setProductId(props.data.productId);
-        setId(props.data.id);
-    }, [props.data]);
+        if (!close) navigate('/product');
+    }, [close]);
+
+    useEffect(() => {
+        setProductName(data.productName);
+        setDepartment(data.department);
+        setPrice(data.price);
+        setProductId(data.productId);
+        setId(data.id);
+    }, [data]);
 
     const saveData = () => {
         const objData = {
@@ -27,10 +38,11 @@ const EditProduct = props => {
             price: price,
             productId: productId,
         }
-        props.editProduct(objData);
+        props.editProduct(objData,navigate);
     };
     return (
         <div className="container">
+            <ButtonClose close={setClose}/>
             <div className="card">
                 <h1 className="card_title">Edit Product</h1>
                 <p className="card_title-info">Pen By David Horvitz</p>

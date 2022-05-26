@@ -1,14 +1,23 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { creatProduct } from "../../action/setData";
 import classes from './Model_Product.css';
+import ButtonClose from "../Templete/ButtonClose/ButtonClose";
+import { useNavigate } from "react-router-dom";
 
 const CreateProduct = props => {
+
+    const navigate = useNavigate();
 
     const [productName, setProductName] = useState('');
     const [department, setDepartment] = useState('');
     const [price, setPrice] = useState('');
     const [productId, setProductId] = useState('');
+    const [close, setClose] = useState(true);
+
+    useEffect(() => {
+        if (!close) navigate('/product');
+    }, [close]);
 
     const saveData = () => {
         const objData = {
@@ -17,10 +26,11 @@ const CreateProduct = props => {
             price: price,
             productId: productId,
         }
-        props.creatProduct(objData);
+        props.creatProduct(objData, navigate);
     };
     return (
         <div className="container">
+            <ButtonClose close={setClose}/>
             <div className="card">
                 <h1 className="card_title">Create Product</h1>
                 <p className="card_title-info">Pen By David Horvitz</p>
