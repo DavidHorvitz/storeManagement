@@ -19,7 +19,7 @@ const EditProduct = props => {
     const [close, setClose] = useState(true);
 
     useEffect(() => {
-        if (!close) navigate('/product');
+        if (!close) navigate('/');
     }, [close]);
 
     useEffect(() => {

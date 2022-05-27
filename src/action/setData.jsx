@@ -7,7 +7,8 @@ export const creatProduct = (obj, navigate) => async dispatch => {
   })
     .then(response => {
       console.log(response);
-      navigate('/product')
+      navigate('/')
+      // navigate('/product')
       dispatch({ type: SET_PRODUCT, payload: response.data });
     })
     .catch(err => console.log(err));

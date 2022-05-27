@@ -6,7 +6,8 @@ export const editProduct = (obj,navigate ) => async dispatch => {
     data: obj
   })
     .then(response => {
-      navigate('/product')
+      navigate('/')
+      // navigate('/product')
       console.log(response);
       dispatch({ type: EDIT_PRODUCT, payload: obj });
     })

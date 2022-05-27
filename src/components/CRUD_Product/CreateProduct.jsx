@@ -16,7 +16,8 @@ const CreateProduct = props => {
     const [close, setClose] = useState(true);
 
     useEffect(() => {
-        if (!close) navigate('/product');
+        if (!close) navigate('/');
+        // if (!close) navigate('/product');
     }, [close]);
 
     const saveData = () => {
@@ -51,7 +52,7 @@ const CreateProduct = props => {
                         <input className="input_field" type="text" value={productId} onChange={e => setProductId(e.currentTarget.value)} />
                         <label className="input_label"> Product Id</label>
                     </div>
-                    <button className="card_button" onClick={() => saveData()}>save</button>
+                    <button className="card_button" onClick={() => saveData()}>Save New Product</button>
                 </div>
             </div>
         </div>
